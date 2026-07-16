@@ -80,7 +80,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <Link 
-                    to="/book" 
+                    to="/book-appointment" 
                     className="bg-[#009b72] hover:bg-[#00825f] text-white px-3 sm:px-5 xl:px-6 py-2 sm:py-2.5 xl:py-3 rounded-md font-semibold text-xs sm:text-sm xl:text-base transition-colors whitespace-nowrap"
                 >
                     <span className="hidden sm:inline">Book Appointment</span>
