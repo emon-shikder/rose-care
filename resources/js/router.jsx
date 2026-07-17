@@ -9,6 +9,8 @@ import Doctors from './pages/website/Doctors';
 import Gallery from './pages/website/Gallery';
 import Testimonials from './pages/website/Testimonials';
 import BookAppointment from './pages/website/BookAppointment';
+import AdminLayout from './layouts/AdminLayout';
+import Dashboard from './pages/admin/Dashboard';
 
 const router = createBrowserRouter([
     {
@@ -46,6 +48,16 @@ const router = createBrowserRouter([
             {
                 path: 'book-appointment',
                 element: <BookAppointment />
+            }
+        ]
+    },
+    {
+        path: '/admin',
+        element: <AdminLayout />,
+        children: [
+            {
+                index: true,
+                element: <Dashboard />
             }
         ]
     }
