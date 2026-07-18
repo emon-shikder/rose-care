@@ -5,21 +5,21 @@ const testimonials = [
     {
         name: 'Sarah Ahmed',
         role: 'Businessman',
-        content: '"The best dental experience I\'ve ever had. The doctors are very friendly and professional."',
+        content: '"The best hospital experience I\'ve ever had. The doctors and nurses are very friendly and professional."',
         avatar: 'https://i.pravatar.cc/150?img=5',
         rating: 5
     },
     {
         name: 'Marjia Islam',
         role: 'Teacher',
-        content: '"RoseCare gave me my confidence back! Highly recommended for everyone."',
+        content: '"RoseCare\'s surgical team saved my life! Highly recommended for any medical emergency."',
         avatar: 'https://i.pravatar.cc/150?img=9',
         rating: 5
     },
     {
         name: 'Rahat Hossain',
         role: 'Engineer',
-        content: '"Clean clinic, modern equipment and excellent service. I\'m very satisfied!"',
+        content: '"Clean hospital, modern medical equipment and excellent patient care. I\'m very satisfied!"',
         avatar: 'https://i.pravatar.cc/150?img=11',
         rating: 5
     }

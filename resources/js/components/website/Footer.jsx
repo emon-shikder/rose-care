@@ -19,12 +19,12 @@ const Footer = () => {
                             </div>
                             <div className="text-2xl font-bold leading-tight tracking-tight">
                                 RoseCare<br/>
-                                <span className="text-[9px] font-medium tracking-[0.2em] text-emerald-100 block uppercase">Dental Clinic</span>
+                                <span className="text-[9px] font-medium tracking-[0.2em] text-emerald-100 block uppercase">General Hospital</span>
                             </div>
                         </Link>
                         
                         <p className="text-[13px] text-emerald-50/80 mb-6 leading-relaxed pr-4">
-                            Creating healthy smiles with gentle care. Your smile is our priority.
+                            Providing comprehensive healthcare. Your well-being is our priority.
                         </p>
                         <div className="flex gap-2">
                             <a href="#" className="w-7 h-7 rounded-full bg-white text-[#0b4d3c] flex items-center justify-center hover:bg-emerald-500 hover:text-white transition-colors">
@@ -58,10 +58,10 @@ const Footer = () => {
                     <div className="xl:col-span-1">
                         <h4 className="text-base font-bold mb-6">Services</h4>
                         <ul className="space-y-3 text-[13px] text-emerald-50/80 font-medium">
-                            <li><a href="#" className="hover:text-white transition-colors">Teeth Whitening</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Dental Implants</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Orthodontics</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Smile Makeover</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Cardiology</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Neurology</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Orthopedics</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Pediatrics</a></li>
                             <li><a href="#" className="hover:text-white transition-colors">Emergency Care</a></li>
                         </ul>
                     </div>
@@ -125,7 +125,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="pt-6 border-t border-emerald-800/60 flex flex-col md:flex-row justify-between items-center gap-4 text-[13px] text-emerald-100/60 font-medium">
                     <div>
-                        © {new Date().getFullYear()} RoseCare Dental Clinic. All Rights Reserved.
+                        © {new Date().getFullYear()} RoseCare General Hospital. All Rights Reserved.
                     </div>
                     <div className="flex items-center gap-4">
                         <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

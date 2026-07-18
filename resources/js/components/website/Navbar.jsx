@@ -42,7 +42,7 @@ const Navbar = () => {
                 <Link to="/" className="flex items-center gap-2 sm:gap-3">
                     <img 
                         src={LogoImage} 
-                        alt="RoseCare Dental Clinic" 
+                        alt="RoseCare General Hospital" 
                         className="h-10 sm:h-12 w-auto object-contain" 
                     />
                 </Link>

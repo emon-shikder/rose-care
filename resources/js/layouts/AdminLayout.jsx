@@ -1,20 +1,37 @@
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import AdminSidebar from '../components/Admin/AdminSidebar';
+import AdminHeader from '../components/Admin/AdminHeader';
 
 const AdminLayout = () => {
+    const [sidebarOpen, setSidebarOpen] = useState(false); // For mobile
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(false); // For desktop
+
     return (
-        <div className="flex flex-col min-h-screen bg-gray-100">
-            <header className="bg-white shadow">
-                <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                    <h1 className="text-3xl font-bold text-gray-900">Admin Panel</h1>
-                    <Link to="/" className="text-blue-500 hover:text-blue-700">Back to Website</Link>
-                </div>
-            </header>
-            <main className="flex-grow">
-                <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-900 font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300">
+            {/* Sidebar */}
+            <AdminSidebar 
+                sidebarOpen={sidebarOpen} 
+                setSidebarOpen={setSidebarOpen} 
+                sidebarCollapsed={sidebarCollapsed}
+                setSidebarCollapsed={setSidebarCollapsed}
+            />
+
+            {/* Content Area */}
+            <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+                {/* Header */}
+                <AdminHeader 
+                    sidebarOpen={sidebarOpen} 
+                    setSidebarOpen={setSidebarOpen} 
+                    sidebarCollapsed={sidebarCollapsed}
+                    setSidebarCollapsed={setSidebarCollapsed}
+                />
+
+                {/* Main Content */}
+                <main className="p-4 md:p-6 2xl:p-10 flex-grow transition-all duration-300">
                     <Outlet />
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
     );
 };

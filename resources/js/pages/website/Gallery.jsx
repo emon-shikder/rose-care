@@ -3,12 +3,12 @@ import React from 'react';
 const Gallery = () => {
     // Array of placeholder images with varied sizes for a masonry-like feel
     const images = [
-        { src: "https://placehold.co/600x400/fecdd3/881337?text=Modern+Facilities", alt: "Modern Facilities", span: "md:col-span-2 md:row-span-2" },
-        { src: "https://placehold.co/400x400/fce7f3/9d174d?text=Patient+Rooms", alt: "Patient Rooms", span: "md:col-span-1 md:row-span-1" },
-        { src: "https://placehold.co/400x400/fbcfe8/be185d?text=Advanced+Equipment", alt: "Advanced Equipment", span: "md:col-span-1 md:row-span-1" },
-        { src: "https://placehold.co/800x400/f9a8d4/db2777?text=Our+Dedicated+Team", alt: "Our Dedicated Team", span: "md:col-span-2 md:row-span-1" },
-        { src: "https://placehold.co/400x400/f472b6/e11d48?text=Waiting+Area", alt: "Waiting Area", span: "md:col-span-1 md:row-span-1" },
-        { src: "https://placehold.co/400x400/fb7185/be123c?text=Emergency+Wing", alt: "Emergency Wing", span: "md:col-span-1 md:row-span-1" },
+        { src: "/images/hospital-room.png", alt: "Modern Facilities", span: "md:col-span-2 md:row-span-2" },
+        { src: "/images/clinic-room.png", alt: "Patient Rooms", span: "md:col-span-1 md:row-span-1" },
+        { src: "/images/hero-dentist.png", alt: "Advanced Equipment", span: "md:col-span-1 md:row-span-1" },
+        { src: "/images/hero-hospital.png", alt: "Our Dedicated Team", span: "md:col-span-2 md:row-span-1" },
+        { src: "/images/blog_1.png", alt: "Waiting Area", span: "md:col-span-1 md:row-span-1" },
+        { src: "/images/blog_2.png", alt: "Emergency Wing", span: "md:col-span-1 md:row-span-1" },
     ];
 
     return (

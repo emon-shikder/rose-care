@@ -6,42 +6,42 @@ const Doctors = () => {
             name: "Dr. Sarah Jenkins",
             specialty: "Cardiology",
             experience: "15+ Years",
-            initials: "SJ",
+            image: "/images/doctor_female.png",
             color: "bg-blue-100 text-blue-600"
         },
         {
             name: "Dr. Michael Chen",
             specialty: "Neurology",
             experience: "12+ Years",
-            initials: "MC",
+            image: "/images/doctor_male.png",
             color: "bg-emerald-100 text-emerald-600"
         },
         {
             name: "Dr. Emily Roberts",
             specialty: "Pediatrics",
             experience: "8+ Years",
-            initials: "ER",
+            image: "/images/doctor_female.png",
             color: "bg-rose-100 text-rose-600"
         },
         {
             name: "Dr. James Wilson",
             specialty: "Orthopedics",
             experience: "20+ Years",
-            initials: "JW",
+            image: "/images/doctor_male.png",
             color: "bg-purple-100 text-purple-600"
         },
         {
             name: "Dr. Olivia Martinez",
             specialty: "Dermatology",
             experience: "10+ Years",
-            initials: "OM",
+            image: "/images/doctor_female.png",
             color: "bg-amber-100 text-amber-600"
         },
         {
             name: "Dr. Robert Taylor",
             specialty: "General Surgery",
             experience: "18+ Years",
-            initials: "RT",
+            image: "/images/doctor_male.png",
             color: "bg-indigo-100 text-indigo-600"
         }
     ];
@@ -60,8 +60,8 @@ const Doctors = () => {
                     {doctors.map((doctor, index) => (
                         <div key={index} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                             <div className="p-8 text-center border-b border-gray-50">
-                                <div className={`w-24 h-24 mx-auto rounded-full flex items-center justify-center text-3xl font-bold mb-5 ${doctor.color}`}>
-                                    {doctor.initials}
+                                <div className={`w-40 h-40 mx-auto rounded-full flex items-center justify-center text-3xl font-bold mb-5 overflow-hidden bg-gray-50 ring-4 ring-gray-50`}>
+                                    <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover object-top" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-800 mb-1">{doctor.name}</h3>
                                 <p className="text-rose-600 font-medium">{doctor.specialty}</p>

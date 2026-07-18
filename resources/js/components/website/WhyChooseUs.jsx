@@ -12,7 +12,7 @@ const WhyChooseUs = () => {
                         <div className="w-8 h-[2px] bg-emerald-600"></div>
                     </h3>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 flex items-center justify-center flex-col gap-6">
-                        We Provide The Best Dental Care
+                        We Provide The Best Medical Care
                         <div className="relative w-16 h-[2px] bg-slate-200 flex items-center justify-center">
                             <div className="absolute w-3 h-3 bg-emerald-600 rounded-full border-[3px] border-white"></div>
                         </div>
@@ -23,7 +23,7 @@ const WhyChooseUs = () => {
                     
                     {/* Left - Image */}
                     <div className="relative rounded-[2rem] overflow-hidden shadow-2xl min-h-[400px] lg:min-h-full h-full group">
-                        <img src="/images/clinic-room.png" alt="Dental Clinic" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src="/images/hospital-room.png" alt="General Hospital" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                         <div className="absolute bottom-8 right-8 z-10">
                             <button className="bg-emerald-600 text-white rounded-full p-4 shadow-xl border-4 border-white hover:bg-emerald-700 transition-all hover:scale-110 flex items-center justify-center">
@@ -35,19 +35,19 @@ const WhyChooseUs = () => {
                     {/* Middle - Why Choose Us Content */}
                     <div className="lg:py-4 flex flex-col justify-center">
                         <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                            Commitment to Your Smile
+                            Commitment to Your Health
                         </h3>
                         <p className="text-slate-600 mb-4 leading-relaxed text-[15px]">
-                            At RoseCare, we combine advanced technology with compassionate care to deliver the best dental experience tailored just for you.
+                            At RoseCare, we combine advanced technology with compassionate care to deliver the best medical experience tailored just for you.
                         </p>
                         <p className="text-slate-600 mb-8 leading-relaxed text-[15px]">
-                            Our dedicated team of professionals ensures that every visit is comfortable, safe, and completely pain-free, setting a new standard in modern dentistry.
+                            Our dedicated team of professionals ensures that every visit is comfortable, safe, and completely pain-free, setting a new standard in modern healthcare.
                         </p>
                         
                         <ul className="space-y-4 mb-10">
                             {[
                                 'Modern & Advanced Equipment',
-                                'Certified & Experienced Dentists',
+                                'Certified & Experienced Doctors',
                                 'Pain-Free & Comfortable Treatment',
                                 'Affordable Pricing for Everyone',
                                 'Digital X-Ray & 3D Scanning'
@@ -93,11 +93,11 @@ const WhyChooseUs = () => {
                             
                             <div className="relative">
                                 <select className="w-full bg-white border border-emerald-50 rounded-[14px] px-5 py-[14px] text-[15px] text-slate-500 appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 shadow-[0_2px_10px_rgb(0,0,0,0.02)] transition-shadow cursor-pointer">
-                                    <option value="">Select Treatment</option>
-                                    <option value="whitening">Teeth Whitening</option>
-                                    <option value="cleaning">Dental Cleaning</option>
-                                    <option value="implants">Dental Implants</option>
-                                    <option value="orthodontics">Orthodontics</option>
+                                    <option value="">Select Department</option>
+                                    <option value="cardiology">Cardiology</option>
+                                    <option value="neurology">Neurology</option>
+                                    <option value="orthopedics">Orthopedics</option>
+                                    <option value="pediatrics">Pediatrics</option>
                                 </select>
                                 <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
                                     <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>

@@ -1,35 +1,35 @@
 import React from 'react';
-import { ArrowRight, Sparkles, Smile, Droplets, ShieldPlus, Activity, BriefcaseMedical } from 'lucide-react';
+import { ArrowRight, HeartPulse, Brain, Baby, Activity, ShieldPlus, BriefcaseMedical } from 'lucide-react';
 
 const services = [
     {
-        title: 'Teeth Whitening',
-        description: 'Brighten your smile with safe & effective whitening.',
-        icon: Sparkles
+        title: 'Cardiology',
+        description: 'Advanced heart care and cardiovascular surgeries.',
+        icon: HeartPulse
     },
     {
-        title: 'Smile Makeover',
-        description: 'Transform your smile with our experts.',
-        icon: Smile
+        title: 'Neurology',
+        description: 'Expert treatment for brain and nervous system disorders.',
+        icon: Brain
     },
     {
-        title: 'Dental Cleaning',
-        description: 'Professional cleaning for healthy teeth & gums.',
-        icon: Droplets
+        title: 'Pediatrics',
+        description: 'Comprehensive medical care for infants and children.',
+        icon: Baby
     },
     {
-        title: 'Dental Implants',
-        description: 'Restore your missing teeth with implants.',
-        icon: ShieldPlus
-    },
-    {
-        title: 'Orthodontics',
-        description: 'Straighten your teeth with modern braces.',
+        title: 'Orthopedics',
+        description: 'Specialized care for bones, joints, and muscles.',
         icon: Activity
     },
     {
+        title: 'General Surgery',
+        description: 'State-of-the-art surgical procedures and care.',
+        icon: ShieldPlus
+    },
+    {
         title: 'Emergency Care',
-        description: '24/7 care for your dental emergencies.',
+        description: '24/7 urgent medical response and trauma care.',
         icon: BriefcaseMedical
     }
 ];
@@ -45,7 +45,7 @@ const Services = () => {
                         <div className="w-8 h-[2px] bg-emerald-600"></div>
                     </h3>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 flex items-center justify-center flex-col gap-6">
-                        Complete Dental Care for Your Healthy Smile
+                        Complete Medical Care for Your Health
                         <div className="relative w-16 h-[2px] bg-slate-200 flex items-center justify-center">
                             <div className="absolute w-3 h-3 bg-emerald-600 rounded-full border-[3px] border-white"></div>
                         </div>

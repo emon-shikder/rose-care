@@ -4,28 +4,28 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const doctors = [
     {
         name: 'Dr. Ayesha Rahman',
-        specialty: 'Cosmetic Dentist',
+        specialty: 'Cardiologist',
         experience: '10+ Years Exp.',
         image: '/images/doctor_female.png',
         socials: { fb: '#', ln: '#', ig: '#' }
     },
     {
         name: 'Dr. Imran Hossain',
-        specialty: 'Implant Specialist',
+        specialty: 'Neurologist',
         experience: '12+ Years Exp.',
         image: '/images/doctor_male.png',
         socials: { fb: '#', ln: '#', ig: '#' }
     },
     {
         name: 'Dr. Nusrat Jahan',
-        specialty: 'Orthodontist',
+        specialty: 'Pediatrician',
         experience: '8+ Years Exp.',
         image: '/images/doctor_female.png',
         socials: { fb: '#', ln: '#', ig: '#' }
     },
     {
         name: 'Dr. Tanvir Ahmed',
-        specialty: 'Dental Surgeon',
+        specialty: 'General Surgeon',
         experience: '9+ Years Exp.',
         image: '/images/doctor_male.png',
         socials: { fb: '#', ln: '#', ig: '#' }
@@ -52,7 +52,7 @@ const Doctors = () => {
                             MEET OUR DOCTORS
                         </h3>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 leading-tight">
-                            Our Expert Dentists
+                            Our Expert Medical Team
                         </h2>
                     </div>
                     <div className="flex gap-3 md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 mt-6 md:mt-0">

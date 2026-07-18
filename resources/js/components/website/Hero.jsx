@@ -26,15 +26,15 @@ const Hero = () => {
                         </h1>
                         
                         <p className="text-lg text-slate-600 max-w-lg leading-relaxed">
-                            Advanced dental care with a gentle touch. <br />
-                            We create healthy, beautiful smiles that last a lifetime.
+                            Advanced medical care with a gentle touch. <br />
+                            We provide comprehensive healthcare that lasts a lifetime.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2">
                             {[
-                                'Cosmetic Dentistry', 'Braces & Orthodontics', 
-                                'Teeth Whitening', 'Emergency Care', 
-                                'Dental Implants'
+                                'Cardiology', 'Neurology', 
+                                'Pediatrics', 'Emergency Care', 
+                                'Orthopedics'
                             ].map((feature, idx) => (
                                 <div key={idx} className="flex items-center gap-3 text-slate-700 font-semibold text-sm">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
@@ -66,7 +66,7 @@ const Hero = () => {
                         <div className="relative z-10 w-full max-w-md mx-auto lg:max-w-none">
                             {/* Main image container */}
                             <div className="relative rounded-b-[100px] rounded-t-[40px] overflow-hidden border-[12px] border-white shadow-2xl bg-emerald-50 aspect-[4/5]">
-                                <img src="/images/hero-dentist.png" alt="Dentist examining patient" className="w-full h-full object-cover" />
+                                <img src="/images/hero-hospital.png" alt="Doctor examining patient" className="w-full h-full object-cover" />
                             </div>
 
                             {/* Floating Cards */}
@@ -126,7 +126,7 @@ const Hero = () => {
                             </div>
                             <div>
                                 <div className="text-3xl font-extrabold text-slate-800">25+</div>
-                                <div className="text-sm font-semibold text-slate-500 mt-1">Dental Experts</div>
+                                <div className="text-sm font-semibold text-slate-500 mt-1">Medical Experts</div>
                             </div>
                         </div>
                         <div className="flex flex-col lg:flex-row items-center justify-center gap-4 px-4 text-center lg:text-left">

@@ -4,20 +4,20 @@ import { Link } from 'react-router-dom';
 
 const blogs = [
     {
-        title: '5 Tips for Healthy Teeth and Gums',
-        category: 'Dental Care',
+        title: '5 Tips for a Healthy Heart',
+        category: 'Cardiology',
         date: 'June 10, 2024',
         image: '/images/blog_1.png'
     },
     {
-        title: 'How Teeth Whitening Can Boost Your Confidence',
-        category: 'Cosmetic',
+        title: 'How Regular Checkups Can Save Your Life',
+        category: 'Wellness',
         date: 'June 8, 2024',
         image: '/images/blog_2.png'
     },
     {
-        title: 'Foods That Are Good for Your Teeth',
-        category: 'Oral Health',
+        title: 'Foods That Boost Your Immune System',
+        category: 'Nutrition',
         date: 'June 5, 2024',
         image: '/images/blog_3.png'
     }
@@ -39,7 +39,7 @@ const Blogs = () => {
                             OUR BLOG
                         </h3>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 leading-tight">
-                            Latest Dental Tips & News
+                            Latest Medical Tips & News
                         </h2>
                     </div>
                     

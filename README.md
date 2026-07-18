@@ -1,6 +1,6 @@
-# RoseCare 🦷
+# RoseCare 🏥
 
-RoseCare is a modern, comprehensive dental care website built to manage clinic operations, patient appointments, and provide a seamless digital experience for dental health services.
+RoseCare is a modern, comprehensive General Hospital Management System built to manage hospital operations, patient appointments, and provide a seamless digital experience for healthcare services.
 
 ## Features ✨
 
