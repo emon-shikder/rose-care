@@ -1,152 +1,127 @@
 import React from 'react';
-import { Calendar, Play, CheckCircle2, Star, Users, Smile, Award } from 'lucide-react';
+import { Calendar, Play, CheckCircle2, Star, Users, Smile, Award, Activity, HeartPulse } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
-        <div className="bg-emerald-50/50 min-h-screen pt-20 pb-12 overflow-hidden flex flex-col justify-center">
-            <div className="container mx-auto px-4 lg:px-8 max-w-[1400px]">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Column */}
-                    <div className="space-y-8 z-10 relative">
-                        {/* Decorative subtle background circle */}
-                        <div className="absolute -top-20 -left-20 w-64 h-64 bg-emerald-100/40 rounded-full blur-3xl -z-10"></div>
+        <div className="relative min-h-screen bg-slate-50 pt-24 pb-20 overflow-hidden flex flex-col justify-center font-sans">
+            {/* Background Effects */}
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-emerald-400/10 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/4"></div>
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-400/10 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/3"></div>
+
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    {/* Text Content */}
+                    <div className="lg:col-span-6 space-y-8">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100/50 border border-emerald-200/50 text-emerald-700 text-sm font-semibold backdrop-blur-sm shadow-sm mb-4 transition-transform hover:scale-105 duration-300">
+                            <HeartPulse className="w-4 h-4" />
+                            <span>Premium Healthcare Center</span>
+                        </div>
                         
                         <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] tracking-tight">
-                            Smile With <br />
-                            <span className="text-emerald-600 flex items-center gap-3 mt-2">
-                                Confidence 
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-emerald-500 animate-pulse">
-                                    <path d="M12 22c-2.5 0-4.5-2-4.5-4.5V17c0-.5-.5-1-1-1s-1 .5-1 1v.5C5.5 20 3.5 18 3.5 15.5V9C3.5 6 6 3.5 9 3.5h6c3 0 5.5 2.5 5.5 5.5v6.5c0 2.5-2 4.5-4.5 4.5v-.5c0-.5-.5-1-1-1s-1 .5-1 1v.5c0 2.5-2 4.5-4.5 4.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M12 22v-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M17.5 4.5l2-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M21.5 7.5l-2-1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M21.5 3.5l-1 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
+                            Elevate Your <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
+                                Wellbeing
                             </span>
                         </h1>
                         
-                        <p className="text-lg text-slate-600 max-w-lg leading-relaxed">
-                            Advanced medical care with a gentle touch. <br />
-                            We provide comprehensive healthcare that lasts a lifetime.
+                        <p className="text-lg text-slate-600 max-w-xl leading-relaxed text-justify sm:text-left">
+                            Experience next-generation medical care where advanced technology meets compassionate expertise. Your health is our masterpiece.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2">
-                            {[
-                                'Cardiology', 'Neurology', 
-                                'Pediatrics', 'Emergency Care', 
-                                'Orthopedics'
-                            ].map((feature, idx) => (
-                                <div key={idx} className="flex items-center gap-3 text-slate-700 font-semibold text-sm">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                                    {feature}
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="flex flex-wrap gap-4 pt-6">
-                            <button className="btn bg-emerald-600 hover:bg-emerald-700 text-white border-none rounded-xl px-8 h-14 flex items-center gap-2 shadow-lg shadow-emerald-600/30 transition-all hover:scale-105">
-                                Book Appointment
-                                <Calendar className="w-4 h-4 ml-1" />
-                            </button>
-                            <button className="btn bg-white hover:bg-gray-50 text-slate-700 border-none rounded-xl px-8 h-14 flex items-center gap-3 shadow-lg shadow-slate-200/50 transition-all hover:scale-105">
-                                <span className="bg-emerald-50 p-2 rounded-full text-emerald-600">
-                                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            <Link to="/book-appointment" className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-300 bg-emerald-600 rounded-2xl hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 overflow-hidden shadow-xl shadow-emerald-600/30">
+                                <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
+                                <span className="relative flex items-center gap-2">
+                                    Book Appointment
+                                    <Calendar className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </span>
-                                Watch Video
+                            </Link>
+                            
+                            <button className="group inline-flex items-center justify-center px-8 py-4 font-bold text-slate-700 transition-all duration-300 bg-white rounded-2xl hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2 border border-slate-200/60 shadow-lg shadow-slate-200/40">
+                                <div className="flex items-center justify-center w-8 h-8 mr-3 rounded-full bg-emerald-100 text-emerald-600 group-hover:scale-110 transition-transform">
+                                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                                </div>
+                                How We Work
                             </button>
+                        </div>
+                        
+                        {/* Trust Indicators */}
+                        <div className="pt-8 flex items-center gap-6 border-t border-slate-200/60">
+                            <div className="flex -space-x-4">
+                                {[1, 2, 3, 4].map((i) => (
+                                    <img key={i} className="w-12 h-12 rounded-full border-4 border-white shadow-sm object-cover" src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Patient" />
+                                ))}
+                            </div>
+                            <div>
+                                <div className="flex items-center gap-1 text-amber-500 mb-1">
+                                    {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
+                                </div>
+                                <p className="text-sm font-semibold text-slate-700">Trusted by 15k+ patients</p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Right Column */}
-                    <div className="relative mt-12 lg:mt-0 pl-0 lg:pl-10">
-                        {/* Background subtle curve */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-emerald-100/30 rounded-full blur-3xl -z-10"></div>
-                        <div className="absolute -inset-4 bg-emerald-50 rounded-full blur-2xl -z-10 opacity-70"></div>
+                    {/* Image & Interactive Elements */}
+                    <div className="lg:col-span-6 relative lg:ml-10 mt-12 lg:mt-0">
+                        {/* Decorative Background Blob behind image */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-200 to-teal-100 rounded-full blur-[80px] opacity-60"></div>
                         
-                        <div className="relative z-10 w-full max-w-md mx-auto lg:max-w-none">
-                            {/* Main image container */}
-                            <div className="relative rounded-b-[100px] rounded-t-[40px] overflow-hidden border-[12px] border-white shadow-2xl bg-emerald-50 aspect-[4/5]">
-                                <img src="/images/hero-hospital.png" alt="Doctor examining patient" className="w-full h-full object-cover" />
+                        {/* Main Image Container */}
+                        <div className="relative z-10 w-full rounded-[2.5rem] bg-white border border-white/50 shadow-2xl p-3 sm:p-4 overflow-visible">
+                            <div className="relative w-full rounded-[2rem] overflow-hidden bg-slate-50 aspect-[4/5] flex items-end justify-center group">
+                                <img 
+                                    src="/images/hero_medical_team.png" 
+                                    alt="Medical Team" 
+                                    className="w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105"
+                                />
+                                {/* Soft overlay at bottom to anchor the image */}
+                                <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-slate-900/10 to-transparent pointer-events-none"></div>
                             </div>
-
-                            {/* Floating Cards */}
-                            <div className="absolute -top-6 -right-6 lg:-right-12 bg-white p-4 pr-6 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce" style={{animationDuration: '4s'}}>
-                                <div className="bg-amber-100 p-2.5 rounded-xl text-amber-500">
-                                    <Star className="w-6 h-6 fill-current" />
+                            
+                            {/* Glassmorphic Floating Card 1 */}
+                            <div className="absolute -left-2 sm:-left-6 lg:-left-12 top-10 sm:top-20 bg-white/90 backdrop-blur-md border border-white/60 p-3 sm:p-4 rounded-2xl shadow-xl flex items-center gap-3 sm:gap-4 animate-pulse" style={{animationDuration: '3s'}}>
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                                    <Activity className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </div>
                                 <div>
-                                    <div className="font-extrabold text-slate-800 text-xl flex items-center gap-1">
-                                        4.9
-                                    </div>
-                                    <div className="text-xs font-semibold text-slate-500">Patient Rating</div>
-                                    <div className="flex gap-0.5 mt-0.5">
-                                        {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 text-amber-400 fill-current" />)}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="absolute top-1/2 -translate-y-1/2 -right-8 lg:-right-16 bg-white p-4 pr-6 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce" style={{animationDuration: '5s', animationDelay: '1s'}}>
-                                <div className="bg-emerald-100 p-3 rounded-xl text-emerald-600">
-                                    <Users className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <div className="font-extrabold text-slate-800 text-xl">20+</div>
-                                    <div className="text-xs font-semibold text-slate-500">Experienced<br/>Doctors</div>
+                                    <p className="text-[10px] sm:text-xs text-slate-500 font-semibold uppercase tracking-wider">Success Rate</p>
+                                    <p className="text-lg sm:text-xl font-extrabold text-slate-800">99.8%</p>
                                 </div>
                             </div>
 
-                            <div className="absolute bottom-8 -right-4 lg:-right-12 bg-white p-4 pr-6 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce" style={{animationDuration: '4.5s', animationDelay: '0.5s'}}>
-                                <div className="bg-emerald-500 p-2 rounded-full text-white">
-                                    <Smile className="w-6 h-6 fill-current" />
+                            {/* Glassmorphic Floating Card 2 */}
+                            <div className="absolute -right-2 sm:-right-4 lg:-right-8 bottom-12 sm:bottom-24 bg-white/90 backdrop-blur-md border border-white/60 p-3 sm:p-4 rounded-2xl shadow-xl flex items-center gap-3 sm:gap-4 animate-bounce" style={{animationDuration: '4s'}}>
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-teal-100 rounded-full flex items-center justify-center text-teal-600">
+                                    <Award className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </div>
                                 <div>
-                                    <div className="font-extrabold text-slate-800 text-xl">15K+</div>
-                                    <div className="text-xs font-semibold text-slate-500">Happy<br/>Patients</div>
+                                    <p className="text-[10px] sm:text-xs text-slate-500 font-semibold uppercase tracking-wider">Award Winning</p>
+                                    <p className="text-lg sm:text-xl font-extrabold text-slate-800">Clinic 2026</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom Stats Bar */}
-                <div className="mt-20 lg:mt-28 bg-white rounded-3xl p-8 lg:p-10 shadow-2xl shadow-emerald-900/5 relative z-20 border border-slate-50">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-slate-100">
-                        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 px-4 text-center lg:text-left">
-                            <div className="bg-emerald-50 p-4 rounded-full text-emerald-600">
-                                <Smile className="w-8 h-8" />
+                {/* Modern Features Strip */}
+                <div className="mt-20 lg:mt-32">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                        {[
+                            { icon: CheckCircle2, title: "Expert Doctors", desc: "Top medical specialists" },
+                            { icon: Activity, title: "Modern Tech", desc: "Advanced equipment" },
+                            { icon: HeartPulse, title: "24/7 Care", desc: "Always here for you" },
+                            { icon: Smile, title: "Patient First", desc: "Comfortable experience" }
+                        ].map((feature, idx) => (
+                            <div key={idx} className="group p-6 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-4 group-hover:scale-110 transition-transform group-hover:bg-emerald-600 group-hover:text-white">
+                                    <feature.icon className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-lg font-bold text-slate-800 mb-1">{feature.title}</h3>
+                                <p className="text-sm text-slate-500">{feature.desc}</p>
                             </div>
-                            <div>
-                                <div className="text-3xl font-extrabold text-slate-800">15K+</div>
-                                <div className="text-sm font-semibold text-slate-500 mt-1">Happy Patients</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 px-4 text-center lg:text-left">
-                            <div className="bg-emerald-50 p-4 rounded-full text-emerald-600">
-                                <Users className="w-8 h-8" />
-                            </div>
-                            <div>
-                                <div className="text-3xl font-extrabold text-slate-800">25+</div>
-                                <div className="text-sm font-semibold text-slate-500 mt-1">Medical Experts</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 px-4 text-center lg:text-left">
-                            <div className="bg-emerald-50 p-4 rounded-full text-emerald-600">
-                                <Award className="w-8 h-8" />
-                            </div>
-                            <div>
-                                <div className="text-3xl font-extrabold text-slate-800">12+</div>
-                                <div className="text-sm font-semibold text-slate-500 mt-1">Years Experience</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 px-4 text-center lg:text-left">
-                            <div className="bg-emerald-50 p-4 rounded-full text-emerald-600">
-                                <Star className="w-8 h-8" />
-                            </div>
-                            <div>
-                                <div className="text-3xl font-extrabold text-slate-800">98%</div>
-                                <div className="text-sm font-semibold text-slate-500 mt-1">Patient Satisfaction</div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -10,17 +10,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="xl:col-span-1">
                         <Link to="/" className="inline-flex items-center gap-3 mb-6">
-                            <div className="text-white">
-                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M12 22c-2.5 0-4.5-2-4.5-4.5V17c0-.5-.5-1-1-1s-1 .5-1 1v.5C5.5 20 3.5 18 3.5 15.5V9C3.5 6 6 3.5 9 3.5h6c3 0 5.5 2.5 5.5 5.5v6.5c0 2.5-2 4.5-4.5 4.5v-.5c0-.5-.5-1-1-1s-1 .5-1 1v.5c0 2.5-2 4.5-4.5 4.5z"/>
-                                    <path d="M12 22v-3"/>
-                                    <path d="M12 13.5c-2.5-3-3-4.5-3-6 0-1.5 1.5-2.5 3-1 1.5-1.5 3-.5 3 1 0 1.5-.5 3-3 6z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <div className="text-2xl font-bold leading-tight tracking-tight">
-                                RoseCare<br/>
-                                <span className="text-[9px] font-medium tracking-[0.2em] text-emerald-100 block uppercase">General Hospital</span>
-                            </div>
+                            <img src="/images/logos/logo-white.png" alt="RoseCare Logo" className="h-6 w-auto object-contain" />
                         </Link>
                         
                         <p className="text-[13px] text-emerald-50/80 mb-6 leading-relaxed pr-4">

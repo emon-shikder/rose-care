@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const doctors = [
@@ -29,19 +29,65 @@ const doctors = [
         experience: '9+ Years Exp.',
         image: '/images/doctor_male.png',
         socials: { fb: '#', ln: '#', ig: '#' }
+    },
+    {
+        name: 'Dr. Salma Begum',
+        specialty: 'Gynecologist',
+        experience: '15+ Years Exp.',
+        image: '/images/doctor_female.png',
+        socials: { fb: '#', ln: '#', ig: '#' }
+    },
+    {
+        name: 'Dr. Kamal Hasan',
+        specialty: 'Orthopedics',
+        experience: '11+ Years Exp.',
+        image: '/images/doctor_male.png',
+        socials: { fb: '#', ln: '#', ig: '#' }
+    },
+    {
+        name: 'Dr. Farhana Islam',
+        specialty: 'Dermatologist',
+        experience: '7+ Years Exp.',
+        image: '/images/doctor_female.png',
+        socials: { fb: '#', ln: '#', ig: '#' }
+    },
+    {
+        name: 'Dr. Asif Akbar',
+        specialty: 'Psychiatrist',
+        experience: '14+ Years Exp.',
+        image: '/images/doctor_male.png',
+        socials: { fb: '#', ln: '#', ig: '#' }
     }
 ];
 
 const Doctors = () => {
     const scrollRef = useRef(null);
+    const [isPaused, setIsPaused] = useState(false);
 
     const scroll = (direction) => {
         if (scrollRef.current) {
             const { current } = scrollRef;
             const scrollAmount = direction === 'left' ? -current.offsetWidth / 2 : current.offsetWidth / 2;
-            current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            
+            // Check if we are at the end, and if so, loop back to the start
+            if (direction === 'right' && current.scrollLeft + current.offsetWidth >= current.scrollWidth - 10) {
+                current.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
         }
     };
+
+    // Auto-slide effect
+    useEffect(() => {
+        if (isPaused) return;
+        
+        const interval = setInterval(() => {
+            scroll('right');
+        }, 3500); // Slide every 3.5 seconds
+        
+        return () => clearInterval(interval);
+    }, [isPaused]);
 
     return (
         <section className="py-10 bg-white relative">
@@ -73,6 +119,10 @@ const Doctors = () => {
 
                 <div 
                     ref={scrollRef}
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onTouchStart={() => setIsPaused(true)}
+                    onTouchEnd={() => setIsPaused(false)}
                     className="flex overflow-x-auto gap-5 pb-8 snap-x snap-mandatory hide-scrollbar"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
