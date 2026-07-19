@@ -53,15 +53,24 @@ class FrontendController extends Controller
                     'first_name' => $validated['firstName'],
                     'last_name' => $validated['lastName'],
                     'patient_code' => 'PT-' . strtoupper(Str::random(6)),
+                    'dob' => '2000-01-01', // Default DOB as form doesn't have it
+                    'gender' => 'Other', // Default Gender
                 ]
             );
 
+            $doctor = \App\Models\Doctor::where('department_id', $validated['department'])->first();
+            
+            if (!$doctor) {
+                throw new \Exception('No doctors available in the selected department.');
+            }
+
             $appointment = Appointment::create([
                 'patient_id' => $patient->id,
+                'doctor_id' => $doctor->id,
                 'department_id' => $validated['department'],
                 'appointment_date' => $validated['date'],
                 'time_slot' => $validated['time'],
-                'status' => 'pending',
+                'status' => 'Pending',
                 'reason_for_visit' => $validated['message'],
             ]);
 
