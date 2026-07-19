@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const BookAppointment = () => {
+    const [departments, setDepartments] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -12,15 +18,47 @@ const BookAppointment = () => {
         message: ''
     });
 
+    useEffect(() => {
+        const fetchDepartments = async () => {
+            try {
+                const response = await axios.get('/api/frontend/departments');
+                setDepartments(response.data);
+            } catch (error) {
+                console.error("Error fetching departments:", error);
+            }
+        };
+        fetchDepartments();
+    }, []);
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
-        alert('Appointment request submitted successfully! We will contact you soon to confirm.');
+        setLoading(true);
+        setSuccessMessage('');
+        setErrorMessage('');
+        
+        try {
+            await axios.post('/api/frontend/appointments/book', formData);
+            setSuccessMessage('Appointment request submitted successfully! We will contact you soon to confirm.');
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
+                date: '',
+                time: '',
+                department: '',
+                message: ''
+            });
+        } catch (error) {
+            console.error("Error booking appointment:", error);
+            setErrorMessage('Failed to book appointment. Please try again later.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -34,6 +72,16 @@ const BookAppointment = () => {
                 </div>
 
                 <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
+                    {successMessage && (
+                        <div className="mb-6 bg-green-50 text-green-700 border border-green-200 rounded-lg p-4">
+                            {successMessage}
+                        </div>
+                    )}
+                    {errorMessage && (
+                        <div className="mb-6 bg-red-50 text-red-700 border border-red-200 rounded-lg p-4">
+                            {errorMessage}
+                        </div>
+                    )}
                     <form onSubmit={handleSubmit} className="space-y-8">
                         {/* Personal Information */}
                         <div>
@@ -103,17 +151,15 @@ const BookAppointment = () => {
                                     <select 
                                         id="department" 
                                         name="department"
+                                        required
                                         value={formData.department}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all bg-white"
                                     >
                                         <option value="">Select Department</option>
-                                        <option value="cardiology">Cardiology</option>
-                                        <option value="neurology">Neurology</option>
-                                        <option value="pediatrics">Pediatrics</option>
-                                        <option value="orthopedics">Orthopedics</option>
-                                        <option value="dermatology">Dermatology</option>
-                                        <option value="general">General Medicine</option>
+                                        {departments.map(dept => (
+                                            <option key={dept.id} value={dept.id}>{dept.name}</option>
+                                        ))}
                                     </select>
                                 </div>
                                 <div>
@@ -162,9 +208,17 @@ const BookAppointment = () => {
                         <div className="pt-4">
                             <button 
                                 type="submit" 
-                                className="w-full md:w-auto px-10 py-4 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 text-lg shadow-md hover:shadow-lg"
+                                disabled={loading}
+                                className="w-full md:w-auto px-10 py-4 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 text-lg shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
-                                Request Appointment
+                                {loading ? (
+                                    <>
+                                        <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                                        Submitting...
+                                    </>
+                                ) : (
+                                    'Request Appointment'
+                                )}
                             </button>
                             <p className="text-sm text-gray-500 mt-4 text-center md:text-left">
                                 * Submitting this form does not guarantee the exact requested time. We will call you to confirm.

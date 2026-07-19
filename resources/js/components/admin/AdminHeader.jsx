@@ -1,7 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, Search, Moon, Sun, Bell, ChevronDown, AlignLeft } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, Search, Moon, Sun, Bell, ChevronDown, AlignLeft, LogOut, User } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const AdminHeader = ({ sidebarOpen, setSidebarOpen, sidebarCollapsed, setSidebarCollapsed }) => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef = useRef(null);
+
+  // Close profile dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
   const [darkMode, setDarkMode] = useState(() => {
     // Default to light mode initially unless explicitly set to dark in local storage
     if (typeof window !== 'undefined') {
@@ -83,14 +100,49 @@ const AdminHeader = ({ sidebarOpen, setSidebarOpen, sidebarCollapsed, setSidebar
           </ul>
 
           {/* User Profile */}
-          <div className="relative flex items-center gap-3 cursor-pointer pl-3 sm:pl-6 border-l border-slate-200 dark:border-slate-700 group">
-             <div className="hidden sm:flex flex-col items-end">
-                 <span className="text-sm font-medium text-slate-700 dark:text-slate-200 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Musharof</span>
-             </div>
-             <div className="w-[42px] h-[42px] rounded-full overflow-hidden border border-slate-200 dark:border-slate-600 shadow-sm">
-                <img src="https://ui-avatars.com/api/?name=Musharof&background=F1F5F9&color=334155" alt="User" className="w-full h-full object-cover" />
-             </div>
-             <ChevronDown className="w-4 h-4 text-slate-500 dark:text-slate-400 hidden sm:block group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+          <div ref={profileRef} className="relative pl-3 sm:pl-6 border-l border-slate-200 dark:border-slate-700">
+            <div 
+              onClick={() => setProfileOpen(!profileOpen)}
+              className="flex items-center gap-3 cursor-pointer group"
+            >
+               <div className="hidden sm:flex flex-col items-end">
+                   <span className="text-sm font-medium text-slate-700 dark:text-slate-200 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {user?.name || 'Admin'}
+                   </span>
+               </div>
+               <div className="w-[42px] h-[42px] rounded-full overflow-hidden border border-slate-200 dark:border-slate-600 shadow-sm">
+                  <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user?.name || 'Admin')}&background=F1F5F9&color=334155`} alt="User" className="w-full h-full object-cover" />
+               </div>
+               <ChevronDown className={`w-4 h-4 text-slate-500 dark:text-slate-400 hidden sm:block group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-transform duration-200 ${profileOpen ? 'rotate-180' : ''}`} />
+            </div>
+
+            {/* Dropdown Menu */}
+            {profileOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-md shadow-lg py-1 border border-slate-200 dark:border-slate-700 z-50">
+                <div className="px-4 py-2 border-b border-slate-200 dark:border-slate-700 sm:hidden">
+                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200 truncate">{user?.name || 'Admin'}</p>
+                   <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{user?.email}</p>
+                </div>
+                <Link
+                  to="/admin/settings"
+                  onClick={() => setProfileOpen(false)}
+                  className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <User className="w-4 h-4 mr-2" />
+                  Profile Settings
+                </Link>
+                <button
+                  onClick={async () => {
+                    await logout();
+                    navigate('/admin/login');
+                  }}
+                  className="flex w-full items-center px-4 py-2 text-sm text-red-600 hover:bg-slate-100 dark:text-red-400 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
           
         </div>
