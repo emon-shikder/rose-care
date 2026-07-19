@@ -9,6 +9,7 @@ import Doctors from './pages/website/Doctors';
 import Gallery from './pages/website/Gallery';
 import Testimonials from './pages/website/Testimonials';
 import BookAppointment from './pages/website/BookAppointment';
+import NotFound from './pages/NotFound';
 import AdminLayout from './layouts/AdminLayout';
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import Login from './pages/admin/auth/Login';
@@ -176,6 +177,10 @@ const router = createBrowserRouter([
                 ]
             }
         ]
+    },
+    {
+        path: '*',
+        element: <NotFound />
     }
 ]);
 
